@@ -62,4 +62,13 @@ class FiltersTest {
         ));
         assertEquals(expected, filters.filterFlights("third_filter", incoming));
     }
+
+    @Test
+    @DisplayName("Выбрасывается инсключение")
+    void filterFlightsWrongFilterTest() {
+        // Выбрасывается инсключение если задан не правильный фильтр
+        assertThrows(IllegalArgumentException.class,
+                () -> filters.filterFlights("wrong", source),
+                "Фильтр wrong не существует. Укажите корректное правило фильтрации");
+    }
 }
