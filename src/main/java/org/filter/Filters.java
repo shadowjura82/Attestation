@@ -37,7 +37,7 @@ public class Filters {
                 .toList()
         );
 
-        // Сегменты с датой прилёта раньше даты вылета
+        // Сегменты с промежутками больше 2 часов
         filters.put("third_filter", (flights) -> flights.stream()
                 .filter(f -> {
                     List<Segment> seg = f.getSegments();
